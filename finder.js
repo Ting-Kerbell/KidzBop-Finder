@@ -13,6 +13,9 @@ api.register(function (err, uid) {
 window.onload = function() {
   document.getElementById("button") = function() {
 
+api.searchArtist("Kings of Leon", function(err, result) {
+  console.log(result);
+});
     // /* Load the HTTP library */
     // var http = require("http");
     //
