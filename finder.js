@@ -1,24 +1,25 @@
-  /* Load the HTTP library */
-  var http = require("http");
+var Gracenote = require("node-gracenote");
+/* Auth info */
+var client_id =  1739837544-B5D728286C459FD6DF9650917CB4829F
+var client_tag = B5D728286C459FD6DF9650917CB4829F
+var userId = null;
+var api = new Gracenote(client_id, client_tag, userId);
+api.register(function (err, uid) {
+  // todo: store user id somewhere for next session
+})
 
-  /* Create an HTTP server to handle responses */
+window.onload = function() {
+  document.getElementById("button") = function() {
 
-  http.createServer(function(request, response) {
-    response.writeHead(200, {"Content-Type": "text/plain"});
-    response.write("Hello World");
-    response.end();
-  }).listen(8888);
+    // /* Load the HTTP library */
+    // var http = require("http");
+    //
+    // /* Create an HTTP server to handle responses */
+    // http.createServer(function(request, response) {
+    //   response.writeHead(200, {"Content-Type": "text/plain"});
+    //   response.write("Hello World");
+    //   response.end();
+    // }).listen(8888);
 
-  function findSong(songName){
-  	const RapidAPI = require('rapidapi-connect');
-const rapid = new RapidAPI(*PROJECT*, *KEY*);
-
-rapid.call('SpotifyPublicAPI', 'searchTracks', { 
-
-
-}).on('success', (payload)=>{
-	 /*YOUR CODE GOES HERE*/ 
-}).on('error', (payload)=>{
-	 /*YOUR CODE GOES HERE*/ 
-});
   }
+});
