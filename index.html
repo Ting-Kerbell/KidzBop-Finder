@@ -9,8 +9,8 @@
     <meta name="author" content="">
 
     <title>KidzBop Song Finder</title>
-    <script src=finder.js></script>
-
+    <script src="finder.js"></script>
+    <script src="intermediate.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -28,7 +28,7 @@
 
     <div class="overlay"></div>
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-      <source src="mp4/bg.mp4" type="video/mp4">
+      <source id= "demo" src="mp4/bg.mp4" type="video/mp4">
     </video>
 
     <div class="masthead">
@@ -41,9 +41,9 @@
               <p class="mb-5">Ever hear a song and think "Wow! My pre-middle school offspring would really enjoy this song! But aw, gee I hope theres a non potty mouth version of it!"? Well now, you can
                 <strong>take action</strong> on your desires! Enter a song, and we'll check if a safer version exists!!</p>
               <div class="input-group input-group-newsletter">
-                <input type="test" class="form-control" placeholder="Enter Song..." aria-label="Enter Song..." aria-describedby="basic-addon">
+                <input type="test" id="searchSong" class="form-control" placeholder="Enter Song..." aria-label="Enter Song..." aria-describedby="basic-addon">
                 <div class="input-group-append">
-                  <button class="btn btn-secondary" type="button">Search!</button>
+                  <button id="startSearch" class="btn btn-secondary" type="button">Search!</button>
                 </div>
               </div>
             </div>
