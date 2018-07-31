@@ -34,5 +34,5 @@ app.get('/kidzquery.json', function(req, res) {
   });
 });
 
-//app.listen(PORT);
- app.listen(8888);
+app.listen(PORT);
+//app.listen(8888);
