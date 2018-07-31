@@ -7,7 +7,7 @@ Client side stuff
 video not looping >:(
 
 */
-// const PORT = process.env.PORT || 8888;
+const PORT = process.env.PORT || 8888;
 const express = require('express');
 const Gracenote = require("node-gracenote");
 /* Auth info */
@@ -34,5 +34,5 @@ app.get('/kidzquery.json', function(req, res) {
   });
 });
 
-
-app.listen(8888);
+app.listen(PORT);
+// app.listen(8888);
