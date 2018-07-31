@@ -26,7 +26,8 @@ app.use(function(req, res, next) {
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/kidzquery.json', function(req, res) {
+app.put('/kidzquery.json', function(req, res) {
+	console.log(req.body)
   api.searchArtist("Kidz Bop", function(err, result) {
     res.type('json')
     console.log(result[0]);
@@ -34,5 +35,5 @@ app.get('/kidzquery.json', function(req, res) {
   });
 });
 
-app.listen(PORT);
-// app.listen(8888);
+//app.listen(PORT);
+ app.listen(8888);

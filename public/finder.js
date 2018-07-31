@@ -5,7 +5,7 @@ window.onload = function() {
     /* New async request */
     url = "https://kidzbop-finder.herokuapp.com/kidzquery.json"
     request = new XMLHttpRequest();
-    request.open("GET", url, true);
+    request.open("PUT", url, true, toSearch);
     request.onReadyStateChange = function () {
       if (request.readystate == 4 && request.status == 200) {
         request = request.responseText;
@@ -15,6 +15,8 @@ window.onload = function() {
       }
     }
   	// console.log(toSearch);
+
+    request.send();
 }
 
 $('demo').on('ended', function () {
