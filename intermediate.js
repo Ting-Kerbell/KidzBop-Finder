@@ -1,6 +1,7 @@
 window.onload = function() {
   document.getElementById("startSearch").onclick = function() {
   	var toSearch = $("#searchSong").val();
+    
   	console.log(toSearch);
 
 }
