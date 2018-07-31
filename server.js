@@ -2,11 +2,8 @@
 
 Lyrics from Genius API
 Find streaming api
-Server shit
-Client side stuff
-video not looping >:(
-
 */
+
 const PORT = process.env.PORT || 8888;
 const express = require('express');
 const Gracenote = require("node-gracenote");
@@ -26,9 +23,11 @@ app.use(function(req, res, next) {
 
 app.use(express.static(__dirname + '/public'));
 
-app.put('/kidzquery.json', function(req, res) {
-	console.log(req.body)
-  api.searchArtist("Kidz Bop", function(err, result) {
+app.get('/kidzquery.json', function(req, res) {
+  console.log("IN SERVER")
+	toSearch = req.body
+
+  api.searchTrack("Kidz Bop Kids", null, toSearch, function(err, result) {
     res.type('json')
     console.log(result[0]);
     res.send(result[0]);
