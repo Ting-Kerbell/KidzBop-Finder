@@ -18,7 +18,7 @@ window.onload = function() {
       } else if (request.readyState != 4 && request.status == 200) {
         console.log("processing…");
       } else {
-        console.log("There is a problem");
+        console.log("There is a problem. :-()");
       }
     }
   request.send(toSearch);

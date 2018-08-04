@@ -26,11 +26,22 @@ app.use(express.static(__dirname + '/public'));
 app.get('/kidzquery.json', function(req, res) {
   console.log("IN SERVER")
 	toSearch = req.body;
-	console.log("my toats");
-  api.searchTrack("Kings of Leon", "Only by the Night", "Sex on fire", function(err, result) {
-    res.type('json')
-    console.log(result);
-    res.send(result);
+  api.searchTrack("Kidz Bop Kids", null, toSearch, function(err, result) {
+    if (!err) {
+      res.type('json')
+
+      track_result = result[0].tracks[0].track_title;
+
+      if (track_result.toLowerCase() == toSearch.toLowerCase()) {
+        console.log("YAAAAA")
+      } else {
+        console.log("BOOOOOO")
+      }
+      res.send(result[0].tracks[0]);
+    } else {
+      console.log("something went wrong in the server...");
+      res.send(404);
+    }
   });
 });
 
