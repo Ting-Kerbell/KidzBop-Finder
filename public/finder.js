@@ -18,6 +18,7 @@ window.onload = function() {
       } else if (request.readyState != 4 && request.status == 200) {
         console.log("processing…");
       } else {
+        console.log("status code: " + request.status);
         console.log("There is a problem. :-()");
       }
     }
