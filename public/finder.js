@@ -1,16 +1,18 @@
 window.onload = function() {
   document.getElementById("startSearch").onclick = function() {
   	var toSearch = $("#searchSong").val();
-    console.log(toSearch)
+    console.log("finder js TO SEARCH: " + toSearch)
 
     /* New async request */
-    url = "https://kidzbop-finder.herokuapp.com/kidzquery.json"
+    url = "https://kidzbop-finder.herokuapp.com/kidzquery.json?track=" + toSearch;
+    // url = "http://localhost:8000/kidzquery.json?track=" + toSearch;
+    console.log(url);
+
     request = new XMLHttpRequest();
     request.open("GET", url, true);
-    request.onreadystatechange = function () {
+    request.onreadystatechange = function() {
 
       if (request.readyState == 4 && request.status == 200) {
-        console.log("WE HERE iN FIRST IF");
         request = request.responseText;
         parsed = JSON.parse(request);
 
@@ -19,10 +21,11 @@ window.onload = function() {
         console.log("processing…");
       } else {
         console.log("status code: " + request.status);
-        console.log("There is a problem. :-()");
+        console.log("There is a problem. :-(");
       }
     }
-  request.send(toSearch);
+
+  request.send();
   console.log("sent")
 }
 

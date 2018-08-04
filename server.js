@@ -25,25 +25,31 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/kidzquery.json', function(req, res) {
   console.log("IN SERVER")
-	toSearch = req.body;
+
+  /* Parse query parameters */
+  toSearch = req.query.track;
+  if (!toSearch) {
+    console.log("No track title provided")
+  }
+
   api.searchTrack("Kidz Bop Kids", null, toSearch, function(err, result) {
-    if (!err) {
-      res.type('json')
+      if (!err) {
+        res.type('json');
+        track_result = result[0].tracks[0].track_title;
 
-      track_result = result[0].tracks[0].track_title;
-
-      if (track_result.toLowerCase() == toSearch.toLowerCase()) {
-        console.log("YAAAAA")
+        if (track_result.toLowerCase() == toSearch.toLowerCase()) {
+          console.log("Track exists");
+          res.json(result[0].tracks[0]);
+        } else {
+          console.log("No existing track");
+          res.json({"error": "No such track"});
+        }
       } else {
-        console.log("BOOOOOO")
+        console.log("Something went wrong in the server.");
+        res.send(404);
       }
-      res.send(result[0].tracks[0]);
-    } else {
-      console.log("something went wrong in the server...");
-      res.send(404);
-    }
   });
 });
 
 app.listen(PORT);
-//app.listen(8888);
+//app.listen(8000);
