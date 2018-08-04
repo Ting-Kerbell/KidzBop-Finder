@@ -25,12 +25,12 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/kidzquery.json', function(req, res) {
   console.log("IN SERVER")
-	toSearch = req.body
-
-  api.searchTrack("Kidz Bop Kids", null, toSearch, function(err, result) {
+	toSearch = req.body;
+	console.log("my toats");
+  api.searchTrack("Kings of Leon", "Only by the Night", "Sex on fire", function(err, result) {
     res.type('json')
-    console.log(result[0]);
-    res.send(result[0]);
+    console.log(result);
+    res.send(result);
   });
 });
 
